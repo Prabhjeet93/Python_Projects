@@ -16,7 +16,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 
-driver = webdriver.Chrome('./chromedriver')
+driver = webdriver.Chrome('./tools/chromedriver')
 driver.get('login page of the website')
 print(driver.title)
 
