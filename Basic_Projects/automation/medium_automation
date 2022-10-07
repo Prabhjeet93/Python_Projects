@@ -5,15 +5,19 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 import pandas as pd
 import csv
+from selenium.webdriver.chrome.service import Service
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
-driver = webdriver.Chrome(executable_path=r'./tools/chromedriver', options=options)
+driver = webdriver.Chrome(executable_path=r'C:/Users/HP/Documents/GitHub/Python_Projects/Basic_Projects/tools/chromedriver.exe', options=options)
+
+# s = Service("C:/Users/HP/Documents/GitHub/Python_Projects/Basic_Projects/tools/chromedriver.exe")
+# driver = webdriver.Chrome(service=s)
 
 driver.maximize_window()
 print("Navigating to the page")
 
-with open('./automation/data.csv', 'r') as file:
+with open('C:/Users/HP/Documents/GitHub/Python_Projects/Basic_Projects/automation/data.csv', 'r') as file:
     rd = csv.reader(file)
     print(type(rd))
     for row in rd:
@@ -21,7 +25,8 @@ with open('./automation/data.csv', 'r') as file:
         driver.get(row[0])
         driver.implicitly_wait(20)
         print(driver.title)
-        driver.implicitly_wait(20)
+        #driver.implicitly_wait(20)
+        sleep(10)
         print('Now clicking on the page')
         driver.implicitly_wait(10)
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
