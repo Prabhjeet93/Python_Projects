@@ -1,2 +1,2 @@
 # Python_Projects
-Practicing python by doing small projects in python
+Practicing coding by doing small projects in python language
