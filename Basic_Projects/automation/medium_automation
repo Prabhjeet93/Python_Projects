@@ -10,10 +10,6 @@ from selenium.webdriver.chrome.service import Service
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(executable_path=r'./Basic_Projects/tools/chromedriver.exe', options=options)
-
-# s = Service("./Basic_Projects/tools/chromedriver.exe")
-# driver = webdriver.Chrome(service=s)
-
 driver.maximize_window()
 print("Navigating to the page")
 
