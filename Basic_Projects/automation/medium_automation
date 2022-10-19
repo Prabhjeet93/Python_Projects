@@ -14,6 +14,8 @@ driver = webdriver.Chrome(executable_path=r'./Basic_Projects/tools/chromedriver.
 driver.maximize_window()
 print("Navigating to the page")
 
+# opening a file
+
 with open('./Basic_Projects/automation/data.csv', 'r') as file:
     rd = csv.reader(file)
     print(type(rd))
