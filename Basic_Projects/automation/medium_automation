@@ -16,6 +16,7 @@ print("Navigating to the page")
 
 # opening a csv file and reading the data from it.
 
+
 with open('./Basic_Projects/automation/data.csv', 'r') as file:
     rd = csv.reader(file)
     print(type(rd))
@@ -31,4 +32,5 @@ with open('./Basic_Projects/automation/data.csv', 'r') as file:
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         driver.implicitly_wait(20)        
 file.close()
+# closing the browser
 driver.quit()
