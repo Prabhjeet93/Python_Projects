@@ -1,3 +1,6 @@
+""" this code is going to open a chrome browser and hit the urls mentioned in the .csv file one by one"""
+
+
 from argparse import Action
 from time import sleep
 from selenium  import webdriver
