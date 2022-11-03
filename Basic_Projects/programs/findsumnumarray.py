@@ -1,6 +1,10 @@
 
 from pickle import FALSE, TRUE
+"""
+code to find the sum of two numbers in an array
+we have a number and we need to find whether two numbers exist whose sum can be equal to the given number
 
+"""
 
 a = {1,8,9,3,7,5,7,4,3}
 
