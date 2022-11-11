@@ -9,16 +9,22 @@ from selenium.common.exceptions import NoSuchElementException
 import pandas as pd
 import csv
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+import os
 
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
-driver = webdriver.Chrome(executable_path=r'./Basic_Projects/tools/chromedriver.exe', options=options)
-
+#driver = webdriver.Chrome(executable_path=r'./tools/chromedriver.exe', options=options)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.maximize_window()
 print("Navigating to the page")
 
 # opening a csv file and reading the data from it.
+print(os.getcwd())
+
+file_name=os.path.realpath('data.csv')
+print(file_name)
 
 
 with open('./Basic_Projects/automation/data.csv', 'r') as file:
