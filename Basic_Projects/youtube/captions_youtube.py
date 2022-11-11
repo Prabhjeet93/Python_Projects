@@ -9,25 +9,31 @@ pip3 install youtube-transcript-api # for Linux and MacOs
 
 
 from youtube_transcript_api import YouTubeTranscriptApi
+from pytube import YouTube
   
 # assigning srt variable with the list
 # of dictonaries obtained by the get_transcript() function
 # mention the ID only -> https://www.youtube.com/watch?v=nxcdjsfs
-srt = YouTubeTranscriptApi.get_transcript("nxcdjsfs")
+#link = 'https://www.youtube.com/watch?v=MQcCr3QW1vE'
+srt = YouTubeTranscriptApi.get_transcript("UEyQW-EcnY8")
   
 # prints the result
 # print(srt)
 # print(type(srt))
+# yt = YouTube(link)
+# print("Title: ", yt.title)
 
 strg = ''
 for i in range(len(srt)):
     #print(ls[i]['text'])
     strg = strg+" "+srt[i]['text']
 
-print(strg)
+#print(strg)
 
 #open text file
-text_file = open("data.txt", "w")
+# f_name=yt.title+'.txt'
+# text_file = open(f_name, "w")
+text_file = open('data27.txt', "w")
  
 #write string to file
 text_file.write(str(strg))
