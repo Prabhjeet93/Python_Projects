@@ -1,7 +1,7 @@
 import os
 import sys
 
-""" This code is run Windows commands in Python."""
+""" This code will run Windows commands in Python."""
 
 
 # get current directory
