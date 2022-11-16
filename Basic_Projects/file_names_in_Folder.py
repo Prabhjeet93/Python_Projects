@@ -5,7 +5,6 @@ import os
 print(os.listdir())
 
 
-
 # Get the list of all files and directories from the particular path
 path = "C://Users"
 dir_list = os.listdir(path)
@@ -19,8 +18,6 @@ path = "C://Users"
 files = os.listdir(path)
 files = [f for f in files if os.path.isfile(path+'/'+f)] #Filtering only the files.
 print(*files, sep="\n")
-
-
 
 # To get only particular file. Foreexample .txt or .pdf files.
 
