@@ -8,39 +8,42 @@ from selenium.common.exceptions import NoSuchElementException
 
 
 
-# # writing the csv file line by line
-# with open('data1.csv','w', newline='') as f:
-#     wr=csv.writer(f)
-#     #wr.writerow(["URLs"])
-#     wr.writerow(["https://prabhjeetlearning.medium.com/linux-commands1-51b225d80364"])
-#     wr.writerow(["https://prabhjeetlearning.medium.com/linux-commands1-51b225d80364"])
-#     wr.writerow(["https://prabhjeetlearning.medium.com/linux-commands1-51b225d80364"])
+# writing the csv file line by line
+with open('data1.csv','w', newline='') as f:
+    wr=csv.writer(f)
+    #wr.writerow(["URLs"])
+    wr.writerow(["url1"])
+    wr.writerow(["url2"])
+    wr.writerow(["url3"])
 
-# f.close()
+f.close()
 
-# with open('data1.csv', 'r') as file:
-#     rd = csv.reader(file)
-#     print(type(rd))
-#     for row in rd:
-#         print(row)
-# file.close()
+with open('data1.csv', 'r') as file:
+    rd = csv.reader(file)
+    print(type(rd))
+    for row in rd:
+        print(row)
+file.close()
 def writeTocsv(URLs):
-    with open('data1.csv','w', newline='') as f:
+    with open('./Basic_Projects/automation/data1.csv','a', newline='') as f:
         wr=csv.writer(f)
         wr.writerow([URLs])
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
-driver = webdriver.Chrome(executable_path=r'./tools/chromedriver', options=options)
+driver = webdriver.Chrome(executable_path=r'./Basic_Projects/tools/chromedriver.exe', options=options)
 
 driver.maximize_window()
 print("Navigating to the page")
-
-driver.get("https://prabhjeetlearning.medium.com/")
+main_url = 'url'
+driver.get(main_url)
 driver.implicitly_wait(20)
-
-elems = driver.find_elements(By.XPATH,"//a[@href]")
+driver.refresh()
+driver.implicitly_wait(20)
+elems = driver.find_elements(By.CSS_SELECTOR,"a")
+print('Total number of URLs : ',len(elems))
 
 for elem in elems:
-    url = elem.get_attribute("href")
+    url = elem.get_attribute('href')
     writeTocsv(url)
+
