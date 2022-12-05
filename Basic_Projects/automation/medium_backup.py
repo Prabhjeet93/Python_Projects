@@ -1,24 +1,28 @@
+""" this code is going to open a chrome browser and hit the urls mentioned in the .csv file one by one"""
+
+
+from argparse import Action
 from time import sleep
 from selenium  import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
+import pandas as pd
 import csv
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
-driver = webdriver.Chrome(executable_path=r'./tools/chromedriver', options=options)
-
+#driver = webdriver.Chrome(executable_path=r'./Basic_Projects/tools/chromedriver.exe', options=options)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.maximize_window()
 print("Navigating to the page")
 
-driver.get("url")
-driver.implicitly_wait(20)
+# opening a csv file and reading the data from it.
 
-with open('data1.csv','w', newline='') as f:
-    wr=csv.writer(f)
-    #wr.writerow(["URLs"])
 
-with open('data1.csv', 'r') as file:
+with open('./Basic_Projects/automation/data.csv', 'r') as file:
     rd = csv.reader(file)
     print(type(rd))
     for row in rd:
@@ -26,10 +30,12 @@ with open('data1.csv', 'r') as file:
         driver.get(row[0])
         driver.implicitly_wait(20)
         print(driver.title)
-        driver.implicitly_wait(20)
+        #driver.implicitly_wait(20)
+        sleep(10)
         print('Now clicking on the page')
         driver.implicitly_wait(10)
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         driver.implicitly_wait(20)        
 file.close()
+# closing the browser
 driver.quit()
