@@ -8,7 +8,7 @@ def create():
         c = conn.cursor()
 
         # delete all rows from the table named "donors"
-        # c.execute("DROP TABLE donors")
+        c.execute("DROP TABLE donors")
         
         # create the donors table
         c.execute('''CREATE TABLE donors
