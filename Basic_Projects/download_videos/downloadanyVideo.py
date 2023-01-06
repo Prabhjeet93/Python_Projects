@@ -9,8 +9,8 @@ with open('video.mp4', 'wb') as f:
 
 
 
-import urllib.request
+# import urllib.request
 
-url = 'video url'
+# url = 'video url'
 
-urllib.request.urlretrieve(url, 'video.mp4')
+# urllib.request.urlretrieve(url, 'video.mp4')
