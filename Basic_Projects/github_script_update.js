@@ -7,7 +7,7 @@ const moment = require('moment');
 
 const simpleGit = require("simple-git")
 
-const FILE_PATH = 'C:/Users/HP/Documents/GitHub/github_bot/data.json';
+const FILE_PATH = './data.json';
 
 const DATE = moment().subtract(85,'d').format();
 
@@ -27,9 +27,9 @@ const moment = require('moment');
 
 const simpleGit = require("simple-git")
 
-const FILE_PATH1 = 'C:/Users/HP/Documents/GitHub/github_bot/data.json';
+const FILE_PATH1 = './data.json';
 
-const DATE1 = moment().subtract(85,'d').format();
+const DATE1 = moment().subtract(3,'d').format();
 
 const data1 = {
     date: DATE
@@ -48,7 +48,7 @@ const moment = require('moment');
 
 const simpleGit = require("simple-git")
 
-const FILE_PATH2 = 'C:/Users/HP/Documents/GitHub/github_bot/data.json';
+const FILE_PATH2 = './data.json';
 
 const makeCommit2 = (x,y) => {
     const DATE = moment().subtract(1,'y').add(1,'d').add(x,'w').add(y,'d').format();
@@ -74,7 +74,7 @@ const simpleGit = require("simple-git");
 //`import random from 'random'`
 
 
-const FILE_PATH3 = 'C:/Users/HP/Documents/GitHub/github_bot/data.json';
+const FILE_PATH3 = './data.json';
 
 const makeCommit = n => {
     if(n===0) return simpleGit().push();

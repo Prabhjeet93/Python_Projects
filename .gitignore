@@ -14,3 +14,8 @@ venv_dir/
 *.txt
 *.html
 *.pyc
+*.ts
+*.md
+*.map
+node_modules/*
+package*
